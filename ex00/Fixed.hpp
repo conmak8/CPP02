@@ -6,7 +6,7 @@
 /*   By: cmakario <cmakario@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 20:58:57 by cmakario          #+#    #+#             */
-/*   Updated: 2025/03/11 21:21:20 by cmakario         ###   ########.fr       */
+/*   Updated: 2025/03/11 21:58:13 by cmakario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,8 @@ public:
 		Fixed &operator = (const Fixed &copy);	// Cp assignment operator
 		~Fixed();								// Destructor
 
-		int getRawBits(void) const;
-		void setRawBits(int const raw);
+		void setRawBits(int const raw);			// Setter
+		int getRawBits(void) const;				// Getter
 };
-
 
 #endif // !FIXED_HPP
