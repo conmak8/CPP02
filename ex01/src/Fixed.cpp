@@ -6,7 +6,7 @@
 /*   By: cmakario <cmakario@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 21:20:29 by cmakario          #+#    #+#             */
-/*   Updated: 2025/03/12 16:22:06 by cmakario         ###   ########.fr       */
+/*   Updated: 2025/03/12 16:45:27 by cmakario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ Fixed::Fixed() : fxd_p_value(0) 									// * Constructor
 	std::cout << "Default constructor called" << std::endl;
 }
 
-// ----ex01-----
+// ----ex01----------------------------
 
 Fixed::Fixed(const int integer)	: fxd_p_value(integer << frct_bits)	// * Constructor with paremeters
 {
@@ -45,7 +45,7 @@ Fixed::Fixed(const float fpoint) :	fxd_p_value(roundf(fpoint * (1 << frct_bits))
 // 	fxd_p_value = (roundf(fpoint * (1 << frct_bits)));
 // }
 
-//------------------
+//------------------------------------------
 
 
 Fixed::Fixed(const Fixed &copy) : fxd_p_value(copy.fxd_p_value)		// * Copy constructor
@@ -101,3 +101,12 @@ std::ostream &operator<< (std::ostream &os, const Fixed &obj)
 	return (os);
 }
 
+float Fixed::toFloat(void) const
+{
+	return (static_cast<float>(fxd_p_value) / (1 << frct_bits)); // ! cast as to prevent trunctuation
+}
+
+int Fixed::toInt(void) const
+{
+	return (fxd_p_value >> frct_bits);
+}
