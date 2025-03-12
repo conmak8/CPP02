@@ -6,7 +6,7 @@
 /*   By: cmakario <cmakario@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 20:58:57 by cmakario          #+#    #+#             */
-/*   Updated: 2025/03/12 11:10:04 by cmakario         ###   ########.fr       */
+/*   Updated: 2025/03/12 13:30:28 by cmakario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,17 @@ public:
 		Fixed(const Fixed &copy); 				// Cp constructor
 		Fixed &operator = (const Fixed &copy);	// Cp assignment operator
 		~Fixed();								// Destructor
-
+		// ---ex01----
+		Fixed(const int);						// Constuctor with parameter
+		Fixed(const float);						// Constuctor with parameter
+		// -----------
 		void setRawBits(int const raw);			// Setter
 		int getRawBits(void) const;				// Getter
+		// ---ex01----
+		float toFloat(void) const;
+		int	toInt(void) const;	
+
+		//TODO overload << ?
 };
 
 #endif // !FIXED_HPP
