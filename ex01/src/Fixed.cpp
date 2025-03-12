@@ -6,7 +6,7 @@
 /*   By: cmakario <cmakario@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 21:20:29 by cmakario          #+#    #+#             */
-/*   Updated: 2025/03/12 15:53:38 by cmakario         ###   ########.fr       */
+/*   Updated: 2025/03/12 16:22:06 by cmakario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,30 @@ Fixed::Fixed() : fxd_p_value(0) 									// * Constructor
 
 // ----ex01-----
 
-Fixed::Fixed(const int integer)										// * Constructor with paremeters
+Fixed::Fixed(const int integer)	: fxd_p_value(integer << frct_bits)	// * Constructor with paremeters
 {
-	
+	std::cout << "Int constructor called" << std::endl;
 }
-Fixed::Fixed(const float fpoint)									// * Constructor with paremeters
+
+// ! v.2
+// Fixed::Fixed(const int integer)									// * Constructor with paremeters
+// {
+// 	std::cout << "Int constructor called" << std::endl;
+// 	this->fxd_p_value = integer << frct_bits;
+// }
+
+
+Fixed::Fixed(const float fpoint) :	fxd_p_value(roundf(fpoint * (1 << frct_bits)))								// * Constructor with paremeters
 {
-	
+	std::cout << "Float constructor called" << std::endl;
 }
+
+// ! v.2
+// Fixed::Fixed(const float fpoint) 								// * Constructor with paremeters
+// {
+// 	std::cout << "Float constructor called" << std::endl;
+// 	fxd_p_value = (roundf(fpoint * (1 << frct_bits)));
+// }
 
 //------------------
 

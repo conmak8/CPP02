@@ -6,7 +6,7 @@
 /*   By: cmakario <cmakario@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 20:58:57 by cmakario          #+#    #+#             */
-/*   Updated: 2025/03/12 15:52:30 by cmakario         ###   ########.fr       */
+/*   Updated: 2025/03/12 15:57:43 by cmakario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ public:
 		int	toInt(void) const;	
 
 		//TODO overload << ?
-		std::ostream &operator<< (std::ostream &os, const Fixed &obj);
+		friend std::ostream &operator<< (std::ostream &os, const Fixed &obj); // ? why friend??alliw exw
 };
 
 #endif // !FIXED_HPP
