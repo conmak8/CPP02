@@ -6,7 +6,7 @@
 /*   By: cmakario <cmakario@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 20:58:57 by cmakario          #+#    #+#             */
-/*   Updated: 2025/03/12 13:30:28 by cmakario         ###   ########.fr       */
+/*   Updated: 2025/03/12 15:52:30 by cmakario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ public:
 		// * Orthodox Canonical Form (OCF)
 		Fixed();								// Constuctor
 		Fixed(const Fixed &copy); 				// Cp constructor
-		Fixed &operator = (const Fixed &copy);	// Cp assignment operator
+		Fixed &operator= (const Fixed &copy);	// Cp assignment operator
 		~Fixed();								// Destructor
 		// ---ex01----
 		Fixed(const int);						// Constuctor with parameter
@@ -38,6 +38,7 @@ public:
 		int	toInt(void) const;	
 
 		//TODO overload << ?
+		std::ostream &operator<< (std::ostream &os, const Fixed &obj);
 };
 
 #endif // !FIXED_HPP

@@ -6,7 +6,7 @@
 /*   By: cmakario <cmakario@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 21:20:29 by cmakario          #+#    #+#             */
-/*   Updated: 2025/03/12 11:10:05 by cmakario         ###   ########.fr       */
+/*   Updated: 2025/03/12 15:41:39 by cmakario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ Fixed::Fixed(const Fixed &copy) : fxd_p_value(copy.fxd_p_value) // * Copy constr
 	std::cout << "Copy constructor called" << std::endl;
 }
 
-Fixed &Fixed::operator = (const Fixed &copy) // * Copy assignment operator
+Fixed &Fixed::operator= (const Fixed &copy) // * Copy assignment operator
 {	
 	std::cout << "Copy assignment operator called" << std::endl;
 	if (this == &copy)

@@ -6,31 +6,45 @@
 /*   By: cmakario <cmakario@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 21:20:29 by cmakario          #+#    #+#             */
-/*   Updated: 2025/03/12 12:43:15 by cmakario         ###   ########.fr       */
+/*   Updated: 2025/03/12 15:53:38 by cmakario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
 
-Fixed::Fixed() : fxd_p_value(0) // * Constructor
+Fixed::Fixed() : fxd_p_value(0) 									// * Constructor
 {
 	std::cout << "Default constructor called" << std::endl;
 }
 
-// *in this case i have to call also the cp assignment operator :
+// ----ex01-----
+
+Fixed::Fixed(const int integer)										// * Constructor with paremeters
+{
+	
+}
+Fixed::Fixed(const float fpoint)									// * Constructor with paremeters
+{
+	
+}
+
+//------------------
+
+
+Fixed::Fixed(const Fixed &copy) : fxd_p_value(copy.fxd_p_value)		// * Copy constructor
+{
+	std::cout << "Copy constructor called" << std::endl;
+}
+
+// *in this case i have to call also the cp assignment operator :	// * Copy constructor v.2
 // Fixed::Fixed(const Fixed &copy)
 // { 
 // 	std::cout << "Copy constructor called" << std::endl;
 // 	\*this = copy;
 // }; 
 
-Fixed::Fixed(const Fixed &copy) : fxd_p_value(copy.fxd_p_value) // * Copy constructor
-{
-	std::cout << "Copy constructor called" << std::endl;
-}
-
-Fixed &Fixed::operator = (const Fixed &copy) // * Copy assignment operator
+Fixed &Fixed::operator= (const Fixed &copy) 						// * Copy assignment operator
 {	
 	std::cout << "Copy assignment operator called" << std::endl;
 	if (this == &copy)
@@ -45,10 +59,13 @@ Fixed &Fixed::operator = (const Fixed &copy) // * Copy assignment operator
 	return *this;
 }
 
-Fixed::~Fixed() // *Destructor
+Fixed::~Fixed()														// *Destructor
 {
 	std::cout << "Destructor called" << std::endl;	
 }
+
+
+// -------- Methods
 
 void Fixed::setRawBits(int const raw) // Setter
 {
@@ -60,3 +77,11 @@ int Fixed::getRawBits( void ) const // Getter
 	std::cout << "getRawBits member function called" << std::endl;
 	return (this->fxd_p_value);
 }
+
+// -------ex01
+std::ostream &operator<< (std::ostream &os, const Fixed &obj)
+{
+	os << obj.toFloat();
+	return (os);
+}
+
