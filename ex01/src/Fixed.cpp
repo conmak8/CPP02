@@ -6,61 +6,61 @@
 /*   By: cmakario <cmakario@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 21:20:29 by cmakario          #+#    #+#             */
-/*   Updated: 2025/03/12 16:45:27 by cmakario         ###   ########.fr       */
+/*   Updated: 2025/03/13 10:10:27 by cmakario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
 
-Fixed::Fixed() : fxd_p_value(0) 									// * Constructor
+Fixed::Fixed() : fxd_p_value(0) 													// * Constructor
 {
 	std::cout << "Default constructor called" << std::endl;
 }
 
 // ----ex01----------------------------
 
-Fixed::Fixed(const int integer)	: fxd_p_value(integer << frct_bits)	// * Constructor with paremeters
+Fixed::Fixed(const int integer)	: fxd_p_value(integer << frct_bits)					// * Constructor with paremeters
 {
 	std::cout << "Int constructor called" << std::endl;
 }
 
 // ! v.2
-// Fixed::Fixed(const int integer)									// * Constructor with paremeters
+// Fixed::Fixed(const int integer)													// * Constructor with paremeters
 // {
 // 	std::cout << "Int constructor called" << std::endl;
 // 	this->fxd_p_value = integer << frct_bits;
 // }
 
 
-Fixed::Fixed(const float fpoint) :	fxd_p_value(roundf(fpoint * (1 << frct_bits)))								// * Constructor with paremeters
+Fixed::Fixed(const float fpoint) :	fxd_p_value(roundf(fpoint * (1 << frct_bits)))	// * Constructor with paremeters
 {
 	std::cout << "Float constructor called" << std::endl;
 }
 
 // ! v.2
-// Fixed::Fixed(const float fpoint) 								// * Constructor with paremeters
+// Fixed::Fixed(const float fpoint) 												// * Constructor with paremeters
 // {
 // 	std::cout << "Float constructor called" << std::endl;
 // 	fxd_p_value = (roundf(fpoint * (1 << frct_bits)));
 // }
 
-//------------------------------------------
+//------------------------------------------------------------------
 
 
-Fixed::Fixed(const Fixed &copy) : fxd_p_value(copy.fxd_p_value)		// * Copy constructor
+Fixed::Fixed(const Fixed &copy) : fxd_p_value(copy.fxd_p_value)						// * Copy constructor
 {
 	std::cout << "Copy constructor called" << std::endl;
 }
 
-// *in this case i have to call also the cp assignment operator :	// * Copy constructor v.2
+// *in this case i have to call also the cp assignment operator :					// * Copy constructor v.2
 // Fixed::Fixed(const Fixed &copy)
 // { 
 // 	std::cout << "Copy constructor called" << std::endl;
 // 	\*this = copy;
 // }; 
 
-Fixed &Fixed::operator= (const Fixed &copy) 						// * Copy assignment operator
+Fixed &Fixed::operator= (const Fixed &copy) 										// * Copy assignment operator
 {	
 	std::cout << "Copy assignment operator called" << std::endl;
 	if (this == &copy)
@@ -75,13 +75,12 @@ Fixed &Fixed::operator= (const Fixed &copy) 						// * Copy assignment operator
 	return *this;
 }
 
-Fixed::~Fixed()														// *Destructor
+Fixed::~Fixed()																		// *Destructor
 {
 	std::cout << "Destructor called" << std::endl;	
 }
 
-
-// -------- Methods
+// -------- Methods -----------------------------------------------
 
 void Fixed::setRawBits(int const raw) // Setter
 {
@@ -94,7 +93,8 @@ int Fixed::getRawBits( void ) const // Getter
 	return (this->fxd_p_value);
 }
 
-// -------ex01
+// ------- ex01 ---------------------------------------------------
+
 std::ostream &operator<< (std::ostream &os, const Fixed &obj)
 {
 	os << obj.toFloat();
