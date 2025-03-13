@@ -1,9 +1,11 @@
 # Project Name
-NAME		=	$(BIN_DIR)/ocf
+NAME		=	$(BIN_DIR)/unnecessaryViolence
+
 # Directories
 SRC_DIR		=	src
 BUILD_DIR	=	build
 BIN_DIR		=	bin
+INCLUDE_DIR	=	include  # Added include directory
 
 # Source & Object Files
 SRCS		=	$(wildcard $(SRC_DIR)/*.cpp)
@@ -12,6 +14,9 @@ OBJS		=	$(patsubst $(SRC_DIR)/%.cpp, $(BUILD_DIR)/%.o, $(SRCS))
 # Compiler & Flags
 CXX			=	c++
 CXXFLAGS	=	-Wall -Werror -Wextra -std=c++17
+
+# Include paths
+INCLUDES	=	-I $(INCLUDE_DIR)  # Updated to include the new include folder
 
 # Bold Colors
 BLACK	= \033[1;30m
@@ -22,36 +27,35 @@ BLUE	= \033[1;34m
 MAGENT	= \033[1;35m
 CYAN	= \033[1;36m
 WHITE	= \033[1;37m
-CLEAR	= \033[0m# Reset color
+CLEAR	= \033[0m		# Reset color
 
 # Default Rule
 all: $(BIN_DIR) $(BUILD_DIR) $(NAME)
 
 # Compile Executable
 $(NAME): $(OBJS)
-	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
+	@$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 	@echo "$(GREEN)✅$(notdir $(NAME)) Compiled!$(CLEAR)"
 
 # Compile Object Files in build/
 $(BUILD_DIR)/%.o: $(SRC_DIR)/%.cpp | $(BUILD_DIR)
-	$(CXX) $(CXXFLAGS) -c $< -o $@
+	@$(CXX) $(CXXFLAGS) $(INCLUDES) -c $< -o $@
 
 # Create Directories if not exist
 $(BIN_DIR):
-	mkdir -p $(BIN_DIR)
+	@mkdir -p $(BIN_DIR)
 
 $(BUILD_DIR):
-	mkdir -p $(BUILD_DIR)
+	@mkdir -p $(BUILD_DIR)
 
 # Compile Rule && Run
 run: all
-	@echo "$(BLUE)$(notdir $(NAME)) $(RED)&& $(YELLOW)Executed: 👇$(CLEAR)"
-	./$(NAME) $(ARGS)
+	@echo "$(BLUE)$(notdir $(NAME)) $(RED)is $(YELLOW)Executed: 👇$(CLEAR)"
+	@./$(NAME) $(ARGS)
 
 valgrind: all
 	@echo "$(BLUE)$(notdir $(NAME)) 🦹‍♂️\033[47mMr.Valgrind$(CLEAR) is here!💪"
-	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./$(NAME) 
-	# --verbose for more info
+	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./$(NAME)
 
 # Cleaning Rules
 clean:

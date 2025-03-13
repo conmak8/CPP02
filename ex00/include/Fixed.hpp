@@ -6,7 +6,7 @@
 /*   By: cmakario <cmakario@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 20:58:57 by cmakario          #+#    #+#             */
-/*   Updated: 2025/03/13 10:06:02 by cmakario         ###   ########.fr       */
+/*   Updated: 2025/03/13 11:27:45 by cmakario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 class Fixed
 {
 private:
-		int					fxd_p_value;		// Stores fixed point value
+		int					fixedPointValue;		// Stores fixed point value
 		static const int	frct_bits = 8;		// Number of fractional bits = 8
 public:
 		// * Orthodox Canonical Form (OCF)
@@ -27,20 +27,9 @@ public:
 		Fixed(const Fixed &copy); 				// Cp constructor
 		Fixed &operator= (const Fixed &copy);	// Cp assignment operator
 		~Fixed();								// Destructor
-		// ---ex01----
-		Fixed(const int);						// Constuctor with parameter
-		Fixed(const float);						// Constuctor with parameter
-		// -----------
+
 		void setRawBits(int const raw);			// Setter
 		int getRawBits(void) const;				// Getter
-		// ---ex01----
-		float toFloat(void) const;
-		int	toInt(void) const;	
-
-		//* overload -> << 
-		friend std::ostream &operator<< (std::ostream &os, const Fixed &obj);
-	};
-
-	// std::ostream &operator<< (std::ostream &os, const Fixed &obj);
+};
 
 #endif // !FIXED_HPP
