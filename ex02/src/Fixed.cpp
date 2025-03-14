@@ -6,7 +6,7 @@
 /*   By: cmakario <cmakario@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 21:20:29 by cmakario          #+#    #+#             */
-/*   Updated: 2025/03/14 12:47:57 by cmakario         ###   ########.fr       */
+/*   Updated: 2025/03/14 13:13:53 by cmakario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,22 +141,60 @@ bool Fixed::operator!= (const Fixed &obj)
 }
 
 // ----- + - * / --------------------------------------------------
-int &Fixed::operator+ (const Fixed &obj)
+Fixed Fixed::operator+ (const Fixed &obj) const
 {
-	
+	Fixed result(this->toFloat() + obj.toFloat());
+	return (result);
 }
 
-int &Fixed::operator- (const Fixed &obj)
+Fixed Fixed::operator- (const Fixed &obj) const
 {
-	
+	Fixed result(this->toFloat() - obj.toFloat());
+	return (result);}
+
+Fixed Fixed::operator* (const Fixed &obj) const
+{
+	Fixed result(this->toFloat() * obj.toFloat());
+	return (result);
 }
 
-int &Fixed::operator* (const Fixed &obj)
+Fixed Fixed::operator/ (const Fixed &obj) const
 {
-	
+	if (obj.toFloat() == 0)
+	{
+		std::cerr << "🚨 Division by zero.💀💀💀💀💀💀💀💀";
+		return (Fixed());
+	}
+	return (this->toFloat() / obj.toFloat());
 }
 
-int &Fixed::operator/ (const Fixed &obj)
+// ------- statid methods ------------------------------------------
+	// ? something is wrong here, doesnt make sense
+	// Todo: check constants
+static Fixed &min(Fixed &a, Fixed &b) 
 {
-	
+	if (a.getRawBits() < b.getRawBits())
+		return (a);
+	return (b);
+}
+
+static const Fixed &min(const Fixed &a, const Fixed &b)
+{
+	if (a.getRawBits() < b.getRawBits())
+		return (a);
+	return (b);
+}
+
+static Fixed &max(Fixed &a, Fixed &b)
+{
+	if (a.getRawBits() > b.getRawBits())
+		return (a);
+	return (b);
+}
+
+static const Fixed &max(const Fixed &a, const Fixed &b)
+{
+	if (a.getRawBits() > b.getRawBits())
+		return (a);
+	return (b);
 }

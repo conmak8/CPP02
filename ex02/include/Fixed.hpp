@@ -6,7 +6,7 @@
 /*   By: cmakario <cmakario@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 20:58:57 by cmakario          #+#    #+#             */
-/*   Updated: 2025/03/14 12:45:42 by cmakario         ###   ########.fr       */
+/*   Updated: 2025/03/14 13:04:55 by cmakario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,17 +41,17 @@ public:
 		//* overload -> << 
 		friend std::ostream &operator<< (std::ostream &os, const Fixed &obj);
 		// ---ex02---- *More overloads
-		bool operator> (const Fixed &obj);
-		bool operator< (const Fixed &obj);
-		bool operator>= (const Fixed &obj);
-		bool operator<= (const Fixed &obj);
-		bool operator== (const Fixed &obj);
-		bool operator!= (const Fixed &obj);
+		bool operator> (const Fixed &obj) const;
+		bool operator< (const Fixed &obj) const;
+		bool operator>= (const Fixed &obj) const;
+		bool operator<= (const Fixed &obj) const;
+		bool operator== (const Fixed &obj) const;
+		bool operator!= (const Fixed &obj) const;
 
-		int &operator+ (const Fixed &obj);
-		int &operator- (const Fixed &obj);
-		int &operator* (const Fixed &obj);
-		int &operator/ (const Fixed &obj);
+		Fixed operator+ (const Fixed &obj) const;
+		Fixed operator- (const Fixed &obj) const;
+		Fixed operator* (const Fixed &obj) const;
+		Fixed operator/ (const Fixed &obj) const;
 
 		// TODO : do not know yet how to implement this one
 		int &operator++ (const Fixed &obj);
