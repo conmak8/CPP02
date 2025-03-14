@@ -6,7 +6,7 @@
 /*   By: cmakario <cmakario@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 12:40:29 by cmakario          #+#    #+#             */
-/*   Updated: 2025/03/14 15:26:44 by cmakario         ###   ########.fr       */
+/*   Updated: 2025/03/14 15:49:53 by cmakario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int main() {
     std::cout << "min: " << Fixed::min(a, b) << std::endl;
     std::cout << "max: " << Fixed::max(a, b) << std::endl;
 
-    Fixed const c(123.256f);
+    Fixed const c(123.456f);
     Fixed const d(1234.5678f);
 
     std::cout << "const min: " << Fixed::min(c, d) << std::endl;
@@ -28,3 +28,4 @@ int main() {
 
     return 0;
 }
+

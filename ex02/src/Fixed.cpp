@@ -6,7 +6,7 @@
 /*   By: cmakario <cmakario@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 21:20:29 by cmakario          #+#    #+#             */
-/*   Updated: 2025/03/14 15:24:52 by cmakario         ###   ########.fr       */
+/*   Updated: 2025/03/14 15:50:35 by cmakario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -169,32 +169,30 @@ Fixed Fixed::operator/ (const Fixed &obj) const
 }
 
 // ------- min&max methods ------------------------------------------
-	// ? something is wrong here, doesnt make sense
-	// Todo: check constants
+// v.1 first implemantation before comparison overload
+// Fixed &Fixed::min(Fixed &a, Fixed &b) 
+// {
+// 	if (a.getRawBits() < b.getRawBits())
+// 		return (a);
+// 	return (b);
+// }
+
 Fixed &Fixed::min(Fixed &a, Fixed &b) 
 {
-	if (a.getRawBits() < b.getRawBits())
-		return (a);
-	return (b);
+	return ((a < b) ? a : b);
 }
 
 const Fixed &Fixed::min(const Fixed &a, const Fixed &b)
 {
-	if (a.getRawBits() < b.getRawBits())
-		return (a);
-	return (b);
+	return ((a < b) ? a : b);
 }
 
 Fixed &Fixed::max(Fixed &a, Fixed &b)
 {
-	if (a.getRawBits() > b.getRawBits())
-		return (a);
-	return (b);
+	return ((a > b) ? a : b);
 }
 
 const Fixed &Fixed::max(const Fixed &a, const Fixed &b)
 {
-	if (a.getRawBits() > b.getRawBits())
-		return (a);
-	return (b);
+	return ((a > b) ? a : b);
 }
