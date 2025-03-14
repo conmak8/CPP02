@@ -6,7 +6,7 @@
 /*   By: cmakario <cmakario@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 20:58:57 by cmakario          #+#    #+#             */
-/*   Updated: 2025/03/14 12:23:29 by cmakario         ###   ########.fr       */
+/*   Updated: 2025/03/14 12:35:46 by cmakario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,10 +53,16 @@ public:
 		int &operator* (const Fixed &obj);
 		int &operator/ (const Fixed &obj);
 
+
 		int &operator++ (const Fixed &obj);
 		int &operator++ (const Fixed &obj);
 		int &operator-- (const Fixed &obj);
 		int &operator-- (const Fixed &obj);
+
+		static Fixed &min(Fixed &a, Fixed &b);
+		static const Fixed& min(const Fixed &a, const Fixed &b);
+		static Fixed &max(Fixed &a, Fixed &b);
+		static const Fixed &max(const Fixed &a, const Fixed &b);
 
 	};
 
