@@ -6,7 +6,7 @@
 /*   By: cmakario <cmakario@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 20:58:57 by cmakario          #+#    #+#             */
-/*   Updated: 2025/03/14 10:16:52 by cmakario         ###   ########.fr       */
+/*   Updated: 2025/03/14 12:23:29 by cmakario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,24 @@ public:
 
 		//* overload -> << 
 		friend std::ostream &operator<< (std::ostream &os, const Fixed &obj);
+		// ---ex02---- *More overloads
+		bool &operator> (const Fixed &obj);
+		bool &operator< (const Fixed &obj);
+		bool &operator>= (const Fixed &obj);
+		bool &operator<= (const Fixed &obj);
+		bool &operator== (const Fixed &obj);
+		bool &operator!= (const Fixed &obj);
+
+		int &operator+ (const Fixed &obj);
+		int &operator- (const Fixed &obj);
+		int &operator* (const Fixed &obj);
+		int &operator/ (const Fixed &obj);
+
+		int &operator++ (const Fixed &obj);
+		int &operator++ (const Fixed &obj);
+		int &operator-- (const Fixed &obj);
+		int &operator-- (const Fixed &obj);
+
 	};
 
 	// std::ostream &operator<< (std::ostream &os, const Fixed &obj);

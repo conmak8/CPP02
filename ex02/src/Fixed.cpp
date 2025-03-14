@@ -6,7 +6,7 @@
 /*   By: cmakario <cmakario@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 21:20:29 by cmakario          #+#    #+#             */
-/*   Updated: 2025/03/14 10:19:06 by cmakario         ###   ########.fr       */
+/*   Updated: 2025/03/14 12:17:53 by cmakario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ Fixed::Fixed(const float fpoint) :	fixedPointValue(roundf(fpoint * (1 << frct_bi
 // }
 
 //------------------------------------------------------------------
-
 Fixed::Fixed(const Fixed &copy) : fixedPointValue(copy.fixedPointValue)					// * Copy constructor
 {
 	std::cout << "Copy constructor called" << std::endl;
@@ -81,7 +80,6 @@ Fixed::~Fixed()																			// *Destructor
 }
 
 // -------- Methods -----------------------------------------------
-
 void Fixed::setRawBits(int const raw) // Setter
 {
 	this->fixedPointValue = raw;
@@ -94,7 +92,6 @@ int Fixed::getRawBits( void ) const // Getter
 }
 
 // ------- ex01 ---------------------------------------------------
-
 float Fixed::toFloat(void) const
 {
 	return (static_cast<float>(fixedPointValue) / (1 << frct_bits)); // ! cast as to prevent trunctuation
@@ -109,4 +106,58 @@ std::ostream &operator<< (std::ostream &os, const Fixed &obj)
 {
 	os << obj.toFloat();
 	return (os);
+}
+
+// ------- ex02 ---------------------------------------------------
+// ------- > < >= <= == != ----------------------------------------
+bool &Fixed::operator> (const Fixed &obj)
+{
+	
+}
+
+bool &Fixed::operator< (const Fixed &obj)
+{
+	
+}
+
+bool &Fixed::operator>= (const Fixed &obj)
+{
+	
+}
+
+bool &Fixed::operator<= (const Fixed &obj)
+{
+	
+}
+
+bool &Fixed::operator== (const Fixed &obj)
+{
+	
+}
+
+bool &Fixed::operator!= (const Fixed &obj)
+{
+	
+}
+
+// ----- + - * / --------------------------------------------------
+
+int &Fixed::operator+ (const Fixed &obj)
+{
+	
+}
+
+int &Fixed::operator- (const Fixed &obj)
+{
+	
+}
+
+int &Fixed::operator* (const Fixed &obj)
+{
+	
+}
+
+int &Fixed::operator/ (const Fixed &obj)
+{
+	
 }
