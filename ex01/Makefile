@@ -1,5 +1,5 @@
 # Project Name
-NAME		=	$(BIN_DIR)/unnecessaryViolence
+NAME		=	$(BIN_DIR)/fixedPoint
 
 # Command-line arguments for run and valgrind
 ARGS		=

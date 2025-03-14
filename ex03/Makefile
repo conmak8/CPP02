@@ -1,5 +1,8 @@
 # Project Name
-NAME		=	$(BIN_DIR)/ocp
+NAME		=	$(BIN_DIR)/bsp
+
+# Command-line arguments for run and valgrind
+ARGS		=
 
 # Directories
 SRC_DIR		=	src
@@ -51,11 +54,14 @@ $(BUILD_DIR):
 # Compile Rule && Run
 run: all
 	@echo "$(BLUE)$(notdir $(NAME)) $(RED)is $(YELLOW)Executed: 👇$(CLEAR)"
-	@./$(NAME) $(ARGS)
+	@echo ""
+	@./$(NAME) $(ARGS)	# make run ARGS="arg1 arg2 arg3"
 
 valgrind: all
 	@echo "$(BLUE)$(notdir $(NAME)) 🦹‍♂️\033[47mMr.Valgrind$(CLEAR) is here!💪"
+	@echo ""
 	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./$(NAME)
+	# --verbose for more info
 
 # Cleaning Rules
 clean:

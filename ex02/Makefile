@@ -1,6 +1,5 @@
 # Project Name
-NAME		=	$(BIN_DIR)/unnecessaryViolence
-
+NAME		=	$(BIN_DIR)/now_we_are_talking
 # Command-line arguments for run and valgrind
 ARGS		=
 
