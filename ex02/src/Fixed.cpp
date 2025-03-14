@@ -6,7 +6,7 @@
 /*   By: cmakario <cmakario@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 21:20:29 by cmakario          #+#    #+#             */
-/*   Updated: 2025/03/14 12:17:53 by cmakario         ###   ########.fr       */
+/*   Updated: 2025/03/14 12:47:57 by cmakario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,38 +110,37 @@ std::ostream &operator<< (std::ostream &os, const Fixed &obj)
 
 // ------- ex02 ---------------------------------------------------
 // ------- > < >= <= == != ----------------------------------------
-bool &Fixed::operator> (const Fixed &obj)
+bool Fixed::operator> (const Fixed &obj)
 {
-	
+	return (fixedPointValue > obj.fixedPointValue);
 }
 
-bool &Fixed::operator< (const Fixed &obj)
+bool Fixed::operator< (const Fixed &obj)
 {
-	
+	return (fixedPointValue < obj.fixedPointValue);
 }
 
-bool &Fixed::operator>= (const Fixed &obj)
+bool Fixed::operator>= (const Fixed &obj)
 {
-	
+	return (fixedPointValue >= obj.fixedPointValue);
 }
 
-bool &Fixed::operator<= (const Fixed &obj)
+bool Fixed::operator<= (const Fixed &obj)
 {
-	
+	return (fixedPointValue <= obj.fixedPointValue);
 }
 
-bool &Fixed::operator== (const Fixed &obj)
+bool Fixed::operator== (const Fixed &obj)
 {
-	
+	return (fixedPointValue == obj.fixedPointValue);
 }
 
-bool &Fixed::operator!= (const Fixed &obj)
+bool Fixed::operator!= (const Fixed &obj)
 {
-	
+	return (fixedPointValue != obj.fixedPointValue);
 }
 
 // ----- + - * / --------------------------------------------------
-
 int &Fixed::operator+ (const Fixed &obj)
 {
 	

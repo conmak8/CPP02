@@ -6,7 +6,7 @@
 /*   By: cmakario <cmakario@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 20:58:57 by cmakario          #+#    #+#             */
-/*   Updated: 2025/03/14 12:35:46 by cmakario         ###   ########.fr       */
+/*   Updated: 2025/03/14 12:45:42 by cmakario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,26 +41,26 @@ public:
 		//* overload -> << 
 		friend std::ostream &operator<< (std::ostream &os, const Fixed &obj);
 		// ---ex02---- *More overloads
-		bool &operator> (const Fixed &obj);
-		bool &operator< (const Fixed &obj);
-		bool &operator>= (const Fixed &obj);
-		bool &operator<= (const Fixed &obj);
-		bool &operator== (const Fixed &obj);
-		bool &operator!= (const Fixed &obj);
+		bool operator> (const Fixed &obj);
+		bool operator< (const Fixed &obj);
+		bool operator>= (const Fixed &obj);
+		bool operator<= (const Fixed &obj);
+		bool operator== (const Fixed &obj);
+		bool operator!= (const Fixed &obj);
 
 		int &operator+ (const Fixed &obj);
 		int &operator- (const Fixed &obj);
 		int &operator* (const Fixed &obj);
 		int &operator/ (const Fixed &obj);
 
-
+		// TODO : do not know yet how to implement this one
 		int &operator++ (const Fixed &obj);
 		int &operator++ (const Fixed &obj);
 		int &operator-- (const Fixed &obj);
 		int &operator-- (const Fixed &obj);
 
 		static Fixed &min(Fixed &a, Fixed &b);
-		static const Fixed& min(const Fixed &a, const Fixed &b);
+		static const Fixed &min(const Fixed &a, const Fixed &b);
 		static Fixed &max(Fixed &a, Fixed &b);
 		static const Fixed &max(const Fixed &a, const Fixed &b);
 
