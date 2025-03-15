@@ -6,7 +6,7 @@
 /*   By: cmakario <cmakario@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 21:20:29 by cmakario          #+#    #+#             */
-/*   Updated: 2025/03/14 10:19:06 by cmakario         ###   ########.fr       */
+/*   Updated: 2025/03/15 18:51:33 by cmakario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ int Fixed::getRawBits( void ) const // Getter
 
 float Fixed::toFloat(void) const
 {
-	return (static_cast<float>(fixedPointValue) / (1 << frct_bits)); // ! cast as to prevent trunctuation
+	return (static_cast<float>(fixedPointValue) / (1 << frct_bits));	// ! cast as to prevent trunctuation
 }
 
 int Fixed::toInt(void) const

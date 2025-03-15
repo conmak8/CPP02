@@ -6,7 +6,7 @@
 /*   By: cmakario <cmakario@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 21:20:29 by cmakario          #+#    #+#             */
-/*   Updated: 2025/03/15 16:17:22 by cmakario         ###   ########.fr       */
+/*   Updated: 2025/03/15 19:48:09 by cmakario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ Fixed::Fixed() : fixedPointValue(0) 													// * Constructor
 		std::cout << "Default constructor called" << std::endl;
 }
 
-// ----ex01----------------------------
+// ----ex01----------------------------------------------------------
 
 Fixed::Fixed(const int integer)	: fixedPointValue(integer << frct_bits)					// * Constructor with paremeters Int
 {
@@ -49,7 +49,7 @@ Fixed::Fixed(const float fpoint) :	fixedPointValue(roundf(fpoint * (1 << frct_bi
 // 	fixedPointValue = (roundf(fpoint * (1 << frct_bits)));
 // }
 
-//------------------------------------------------------------------
+//-------------------------------------------------------------------
 Fixed::Fixed(const Fixed &copy) : fixedPointValue(copy.fixedPointValue)					// * Copy constructor
 {
 	if (Fixed::debugMode)
@@ -84,7 +84,7 @@ Fixed::~Fixed()																			// *Destructor
 		std::cout << "Destructor called" << std::endl;	
 }
 
-// -------- Methods -----------------------------------------------
+// -------- Methods -------------------------------------------------
 void Fixed::setRawBits(int const raw) // Setter
 {
 	this->fixedPointValue = raw;
@@ -96,7 +96,7 @@ int Fixed::getRawBits( void ) const // Getter
 	return (this->fixedPointValue);
 }
 
-// ------- ex01 ---------------------------------------------------
+// ------- ex01 -----------------------------------------------------
 float Fixed::toFloat(void) const
 {
 	return (static_cast<float>(fixedPointValue) / (1 << frct_bits)); // ! cast as to prevent trunctuation
@@ -113,8 +113,8 @@ std::ostream &operator<< (std::ostream &os, const Fixed &obj)
 	return (os);
 }
 
-// ------- ex02 ---------------------------------------------------
-// ------- > < >= <= == != ----------------------------------------
+// ------- ex02 -----------------------------------------------------
+// ------- > < >= <= == != ------------------------------------------
 bool Fixed::operator> (const Fixed &obj) const
 {
 	return (this->fixedPointValue > obj.fixedPointValue);
@@ -145,7 +145,7 @@ bool Fixed::operator!= (const Fixed &obj) const
 	return (this->fixedPointValue != obj.fixedPointValue);
 }
 
-// ----- + - * / --------------------------------------------------
+// ----- + - * / ----------------------------------------------------
 Fixed Fixed::operator+ (const Fixed &obj) const
 {
 	Fixed result(this->toFloat() + obj.toFloat());
@@ -203,7 +203,6 @@ const Fixed &Fixed::max(const Fixed &a, const Fixed &b)
 }
 
 // -------pre & post in/decrements-----------------------------------
-
 Fixed &Fixed::operator++()				// pre-increment (++x)
 {
 	this->fixedPointValue += 1;
@@ -230,6 +229,7 @@ Fixed Fixed::operator--(int)			// post-increment (x--)
 	return (temp);
 }
 
+// ------- My creation of a debug Switch ----------------------------
 bool Fixed::debugMode = false;			// initially off
 
 void Fixed::setDebug(bool mode)

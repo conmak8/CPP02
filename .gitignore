@@ -24,3 +24,6 @@ bin/
 
 # Ignore Images
 *.png
+
+# Ignore Images
+**/*.pdf

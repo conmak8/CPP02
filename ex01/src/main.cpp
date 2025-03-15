@@ -6,7 +6,7 @@
 /*   By: cmakario <cmakario@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 12:40:29 by cmakario          #+#    #+#             */
-/*   Updated: 2025/03/14 10:18:51 by cmakario         ###   ########.fr       */
+/*   Updated: 2025/03/15 18:51:42 by cmakario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 int main(void)
 {
-
 	Fixed a;
 	// std::cout << "a is............... " << a << std::endl;
 	Fixed const b(10); 

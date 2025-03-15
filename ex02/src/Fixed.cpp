@@ -6,7 +6,7 @@
 /*   By: cmakario <cmakario@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 21:20:29 by cmakario          #+#    #+#             */
-/*   Updated: 2025/03/14 18:11:43 by cmakario         ###   ########.fr       */
+/*   Updated: 2025/03/15 19:44:13 by cmakario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -147,10 +147,17 @@ Fixed Fixed::operator+ (const Fixed &obj) const
 	return (result);
 }
 
+// ! v.2
+// Fixed Fixed::operator+ (const Fixed &obj) const
+// {
+// 	return (this->toFloat() + obj.toFloat());
+// }
+
 Fixed Fixed::operator- (const Fixed &obj) const
 {
 	Fixed result(this->toFloat() - obj.toFloat());
-	return (result);}
+	return (result);
+}
 
 Fixed Fixed::operator* (const Fixed &obj) const
 {
@@ -199,26 +206,26 @@ const Fixed &Fixed::max(const Fixed &a, const Fixed &b)
 
 // -------pre & post in/decrements-----------------------------------
 
-Fixed &Fixed::operator++()		// pre-increment (++x)
+Fixed &Fixed::operator++()					// pre-increment (++x)
 {
 	this->fixedPointValue += 1;
 	return (*this);
 }
 
-Fixed Fixed::operator++(int)		// post-increment (x++)
+Fixed Fixed::operator++(int)				// post-increment (x++)
 {
 	Fixed temp(*this);
 	++(*this);
 	return (temp);
 }
 
-Fixed &Fixed::operator--()		// pre-decrement (--x)
+Fixed &Fixed::operator--()					// pre-decrement (--x)
 {
 	this->fixedPointValue -= 1;
 	return (*this);
 }
 
-Fixed Fixed::operator--(int)		// post-increment (x--)
+Fixed Fixed::operator--(int)				// post-increment (x--)
 {
 	Fixed temp(*this);
 	--(*this);

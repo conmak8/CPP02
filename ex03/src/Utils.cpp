@@ -6,7 +6,7 @@
 /*   By: cmakario <cmakario@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 18:52:58 by cmakario          #+#    #+#             */
-/*   Updated: 2025/03/15 15:53:04 by cmakario         ###   ########.fr       */
+/*   Updated: 2025/03/15 20:01:49 by cmakario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ bool bsp(Point const a, Point const b, Point const c, Point const point)
 						(x3 - x2) * (y - y3)) / denominator;
 	Fixed	beta = ((y3 - y1) * (x - x3) + 
 						(x1 - x3) * (y - y3)) / denominator;
-	Fixed	gamma = Fixed(1.0f) - alpha - beta; // ? wants 1.0f
+	Fixed	gamma = Fixed(1.0f) - alpha - beta; 
  
 	return (alpha >= Fixed(0.0f) && alpha <= Fixed(1.0f)) && (beta >= Fixed(0.0f) && beta <= Fixed(1.0f))	
 			&& (gamma >= Fixed(0.0f) && gamma <= Fixed(1.0f));
