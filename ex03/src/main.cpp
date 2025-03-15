@@ -6,27 +6,24 @@
 /*   By: cmakario <cmakario@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 12:40:29 by cmakario          #+#    #+#             */
-/*   Updated: 2025/03/14 17:58:54 by cmakario         ###   ########.fr       */
+/*   Updated: 2025/03/15 15:38:09 by cmakario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/Fixed.hpp"
+#include "../include/Point.hpp"
 
 
-int main(void)
+int main()
 {
-	Fixed		a;
-	Fixed const b(Fixed(5.05f) * Fixed(2));
+	Point a(0, 0);
+	Point b(10, 0);
+	Point c(0, 10);
 
-	std::cout << a << std::endl;
-	std::cout << ++a << std::endl;
-	std::cout << a << std::endl;
-	std::cout << a++ << std::endl;
-	std::cout << a << std::endl;
-	
-	std::cout << b << std::endl;
+	Point inside_point(1, 1);
+	Point outside_point(11, 11);
 
-	std::cout << Fixed::max(a, b) << std::endl;
-	
+	std::cout << "Inside (1): " << bsp(a, b, c, inside_point) << std::endl;		// expect true
+	std::cout << "Outside: " << bsp(a, b, c, outside_point) << std::endl;		// expect false (0)
+
 	return 0;
 }
