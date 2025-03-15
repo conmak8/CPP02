@@ -6,7 +6,7 @@
 /*   By: cmakario <cmakario@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 18:52:52 by cmakario          #+#    #+#             */
-/*   Updated: 2025/03/15 12:44:13 by cmakario         ###   ########.fr       */
+/*   Updated: 2025/03/15 12:52:04 by cmakario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,3 +32,13 @@ Point &Point::operator= (const Point &copy)															// * Copy assignment
 }
 
 Point::~Point() {}																					// * Destructor
+
+Fixed Point::getX() const
+{
+	return (this->x);
+}
+
+Fixed Point::getY() const
+{
+	return (this->y);
+} 
