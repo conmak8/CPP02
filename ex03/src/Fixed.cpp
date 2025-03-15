@@ -6,7 +6,7 @@
 /*   By: cmakario <cmakario@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 21:20:29 by cmakario          #+#    #+#             */
-/*   Updated: 2025/03/14 19:13:55 by cmakario         ###   ########.fr       */
+/*   Updated: 2025/03/15 16:17:22 by cmakario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,16 @@
 
 Fixed::Fixed() : fixedPointValue(0) 													// * Constructor
 {
-	std::cout << "Default constructor called" << std::endl;
+	if (Fixed::debugMode)
+		std::cout << "Default constructor called" << std::endl;
 }
 
 // ----ex01----------------------------
 
 Fixed::Fixed(const int integer)	: fixedPointValue(integer << frct_bits)					// * Constructor with paremeters Int
 {
-	std::cout << "Int constructor called" << std::endl;
+	if (Fixed::debugMode)
+		std::cout << "Int constructor called" << std::endl;
 }
 
 // ! v.2
@@ -34,7 +36,8 @@ Fixed::Fixed(const int integer)	: fixedPointValue(integer << frct_bits)					// *
 
 Fixed::Fixed(const float fpoint) :	fixedPointValue(roundf(fpoint * (1 << frct_bits)))	// * Constructor with paremeters Float
 {
-	std::cout << "Float constructor called" << std::endl;
+	if (Fixed::debugMode)
+		std::cout << "Float constructor called" << std::endl;
 	// std::cout << "\nInput " << fpoint << std::endl;
 	// std::cout << "output: " << fixedPointValue << std::endl;
 }
@@ -49,7 +52,8 @@ Fixed::Fixed(const float fpoint) :	fixedPointValue(roundf(fpoint * (1 << frct_bi
 //------------------------------------------------------------------
 Fixed::Fixed(const Fixed &copy) : fixedPointValue(copy.fixedPointValue)					// * Copy constructor
 {
-	std::cout << "Copy constructor called" << std::endl;
+	if (Fixed::debugMode)
+		std::cout << "Copy constructor called" << std::endl;
 }
 
 // *in this case i have to call also the cp assignment operator :						// * Copy constructor v.2
@@ -76,7 +80,8 @@ Fixed &Fixed::operator= (const Fixed &copy) 											// * Copy assignment oper
 
 Fixed::~Fixed()																			// *Destructor
 {
-	std::cout << "Destructor called" << std::endl;	
+	if (Fixed::debugMode)
+		std::cout << "Destructor called" << std::endl;	
 }
 
 // -------- Methods -----------------------------------------------
@@ -199,28 +204,35 @@ const Fixed &Fixed::max(const Fixed &a, const Fixed &b)
 
 // -------pre & post in/decrements-----------------------------------
 
-Fixed &Fixed::operator++()		// pre-increment (++x)
+Fixed &Fixed::operator++()				// pre-increment (++x)
 {
 	this->fixedPointValue += 1;
 	return (*this);
 }
 
-Fixed Fixed::operator++(int)		// post-increment (x++)
+Fixed Fixed::operator++(int)			// post-increment (x++)
 {
 	Fixed temp(*this);
 	++(*this);
 	return (temp);
 }
 
-Fixed &Fixed::operator--()		// pre-decrement (--x)
+Fixed &Fixed::operator--()				// pre-decrement (--x)
 {
 	this->fixedPointValue -= 1;
 	return (*this);
 }
 
-Fixed Fixed::operator--(int)		// post-increment (x--)
+Fixed Fixed::operator--(int)			// post-increment (x--)
 {
 	Fixed temp(*this);
 	--(*this);
 	return (temp);
+}
+
+bool Fixed::debugMode = false;			// initially off
+
+void Fixed::setDebug(bool mode)
+{
+	debugMode = mode;
 }

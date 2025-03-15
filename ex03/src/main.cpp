@@ -6,7 +6,7 @@
 /*   By: cmakario <cmakario@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 12:40:29 by cmakario          #+#    #+#             */
-/*   Updated: 2025/03/15 15:53:09 by cmakario         ###   ########.fr       */
+/*   Updated: 2025/03/15 16:18:41 by cmakario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@
 
 int main()
 {
+	Fixed::setDebug(false);
+	// Fixed::setDebug(true);
+	
 	Point a(0, 0);
 	Point b(10, 0);
 	Point c(0, 10);

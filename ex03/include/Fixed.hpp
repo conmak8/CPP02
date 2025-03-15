@@ -6,7 +6,7 @@
 /*   By: cmakario <cmakario@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 20:58:57 by cmakario          #+#    #+#             */
-/*   Updated: 2025/03/14 18:02:22 by cmakario         ###   ########.fr       */
+/*   Updated: 2025/03/15 16:10:22 by cmakario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ class Fixed
 private:
 		int					fixedPointValue;	// Stores fixed point value
 		static const int	frct_bits = 8;		// Number of fractional bits = 8
+		static bool			debugMode;			// <-- debugging mode ON/OFF
 public:
 		// * Orthodox Canonical Form (OCF)
 		Fixed();								// Constuctor
@@ -64,6 +65,7 @@ public:
 		static Fixed &max(Fixed &a, Fixed &b);
 		static const Fixed &max(const Fixed &a, const Fixed &b);
 
+		static void setDebug(bool mode);		// "switch"
 	};
 
 	// std::ostream &operator<< (std::ostream &os, const Fixed &obj);
