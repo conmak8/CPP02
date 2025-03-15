@@ -6,7 +6,7 @@
 /*   By: cmakario <cmakario@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 18:52:50 by cmakario          #+#    #+#             */
-/*   Updated: 2025/03/15 12:48:39 by cmakario         ###   ########.fr       */
+/*   Updated: 2025/03/15 15:52:38 by cmakario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define POINT_HPP
 
 #include "Fixed.hpp"
+
+
 class Point
 {
 private:

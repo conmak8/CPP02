@@ -1,30 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Utils.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cmakario <cmakario@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/12 12:40:29 by cmakario          #+#    #+#             */
-/*   Updated: 2025/03/15 15:53:09 by cmakario         ###   ########.fr       */
+/*   Created: 2025/03/15 15:46:45 by cmakario          #+#    #+#             */
+/*   Updated: 2025/03/15 15:53:49 by cmakario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/Point.hpp"
-#include "../include/Utils.hpp"
+#ifndef UTILS_HPP
+# define UTILS_HPP
+
+#include "Point.hpp"
 
 
-int main()
-{
-	Point a(0, 0);
-	Point b(10, 0);
-	Point c(0, 10);
+bool bsp(Point const a, Point const b, Point const c, Point const point);
 
-	Point inside_point(1, 1);
-	Point outside_point(11, 11);
-
-	std::cout << "Inside (1): " << bsp(a, b, c, inside_point) << std::endl;		// expect true
-	std::cout << "Outside: " << bsp(a, b, c, outside_point) << std::endl;		// expect false (0)
-
-	return 0;
-}
+#endif // !UTILS_HPP

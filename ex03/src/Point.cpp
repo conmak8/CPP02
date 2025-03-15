@@ -6,7 +6,7 @@
 /*   By: cmakario <cmakario@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 18:52:52 by cmakario          #+#    #+#             */
-/*   Updated: 2025/03/15 12:52:04 by cmakario         ###   ########.fr       */
+/*   Updated: 2025/03/15 13:00:44 by cmakario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,4 +41,4 @@ Fixed Point::getX() const
 Fixed Point::getY() const
 {
 	return (this->y);
-} 
+}
