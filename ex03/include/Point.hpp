@@ -6,7 +6,7 @@
 /*   By: cmakario <cmakario@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 18:52:50 by cmakario          #+#    #+#             */
-/*   Updated: 2025/03/14 19:19:27 by cmakario         ###   ########.fr       */
+/*   Updated: 2025/03/15 12:44:22 by cmakario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,11 @@ private:
 		Fixed const	x;
 		Fixed const	y;
 public:
-		Point(); //Constructor
-		Point(const float x, const float y);
-		Point(const Point &copy);
-		Point &operator= (const Point &copy);
-		~Point();
-
+		Point();											// Constructor
+		Point(const float xValue, const float yValue);		// Constructor with parameters
+		Point(const Point &copy);							// Copy constructor
+		Point &operator= (const Point &copy);				// Copy assignment
+		~Point();											// Destructor
 };
 
 #endif // !POINT_HPP
