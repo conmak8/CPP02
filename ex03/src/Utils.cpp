@@ -6,7 +6,7 @@
 /*   By: cmakario <cmakario@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 18:52:58 by cmakario          #+#    #+#             */
-/*   Updated: 2025/03/15 20:01:49 by cmakario         ###   ########.fr       */
+/*   Updated: 2025/03/15 21:54:39 by cmakario         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ bool bsp(Point const a, Point const b, Point const c, Point const point)
 	const Fixed &y = point.getY(); 
 
 	// first calulate Varycentric coordinates
-	Fixed	denominator = (y2- y3) * (x1 - x3) + 
+	Fixed	denominator = (y2 - y3) * (x1 - x3) + 
 							(x3 - x2) * (y1 - y3);
 	Fixed	alpha = ((y2- y3) * (x - x3) + 
 						(x3 - x2) * (y - y3)) / denominator;
